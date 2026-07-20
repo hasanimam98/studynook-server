@@ -278,7 +278,7 @@ async function run() {
 
 
 
-run();
+
 
 
 
@@ -286,8 +286,18 @@ run();
 
 // Server Start
 
-app.listen(port,()=>{
+run()
+  .then(() => {
 
-  console.log(`Server running on port ${port}`);
+    app.listen(port, () => {
 
-});
+      console.log(`Server running on port ${port}`);
+
+    });
+
+  })
+  .catch(error => {
+
+    console.log(error);
+
+  });
