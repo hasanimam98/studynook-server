@@ -16,11 +16,13 @@ app.use(
     origin: [
       "http://localhost:3000",
       "http://localhost:3001",
+      "https://studynook-client-psi.vercel.app",
     ],
-    methods: ["GET", "POST"],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     credentials: true,
   })
 );
+app.options("*", cors());
 
 app.use(express.json());
 
@@ -71,9 +73,7 @@ async function run() {
 
 
 
-    // ==========================
-    // Register User
-    // ==========================
+  
 
     app.post("/users", async (req, res) => {
 
@@ -109,9 +109,7 @@ async function run() {
 
 
 
-    // ==========================
-    // Login User
-    // ==========================
+     
 
     app.post("/login", async (req,res)=>{
 
@@ -177,10 +175,7 @@ async function run() {
 
 
 
-    // ==========================
-    // Save Booking
-    // ==========================
-
+    
     app.post("/bookings", async(req,res)=>{
 
       try{
@@ -218,9 +213,7 @@ async function run() {
 
 
 
-    // ==========================
-    // Get User Bookings
-    // ==========================
+  
 
     app.get("/bookings", async(req,res)=>{
 
